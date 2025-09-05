@@ -1,0 +1,1 @@
+# Our first step is writing a BPE tokenizer - however for efficiency purposes, we will be using tiktoken

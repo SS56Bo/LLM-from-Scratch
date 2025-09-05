@@ -1,0 +1,3 @@
+[tool.poe.tasks]
+token = "python Token.py"
+pipe = "python Pipeline.py"
