@@ -1,6 +1,7 @@
 # felt cute, might write a small embedding model later
 import tiktoken
 import fitz
+import re
 from tqdm import tqdm
 
 class Tokenizer:
@@ -16,7 +17,7 @@ class Tokenizer:
         for i in range(0, self.context_window+1):
             context = tokens[:i]
             target = tokens[i]
-            print(f"{(context)} ---> {(target)}")
+            print(f"{self.tokenizer.decode(context)} ---> {self.tokenizer.decode([target])}")
     
 class Text:
     def __init__(self):
@@ -24,6 +25,7 @@ class Text:
     
     def text_format(self, input: str):
         clean = input.replace("\n", " ").strip()
+        clean = re.sub(r"[();`]", "", clean)
         return clean
 
     def extract_text(self, filename: str):
