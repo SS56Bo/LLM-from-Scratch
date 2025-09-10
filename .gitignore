@@ -1,3 +1,4 @@
 *.pdf
 *.typ
 __pycache__
+Test.py

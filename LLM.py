@@ -1,5 +1,5 @@
 import torch
-from torch.utils.data import Dataset, DataLoader
+from torch.utils.data import DataLoader
 
 class GPTDataLoader:
     def __init__(self, input: list[int], max_length, stride):
@@ -30,3 +30,20 @@ class GPTDataLoader:
         )
 
         return dataload
+    
+class EmbedText:
+    def __init__(self, vocab_size, dimen, context_size=4):
+        self.vocab_size = vocab_size
+        self.output_dimension = dimen
+        self.embed_model = torch.nn.Embedding(self.vocab_size, self.output_dimension)
+        self.pos_embed_model = torch.nn.Embedding(context_size, self.output_dimension)
+
+    def convert_tokens_to_embeddings(self, input_text):
+        token_embeddings = self.embed_model(input_text)
+
+        positions = torch.arange(input_text.shape[-1])
+        position_embeddings = self.pos_embed_model(positions)
+
+        embeddings = token_embeddings+position_embeddings
+
+        return embeddings

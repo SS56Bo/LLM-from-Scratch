@@ -2,3 +2,4 @@
 pipe = "python Pipeline.py"
 main = "python main.py"
 llm = "python LLM.py"
+test = "python Test.py"
