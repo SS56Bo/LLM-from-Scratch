@@ -14,4 +14,8 @@ data_iter = iter(result_data)
 inputs, targets = next(data_iter)
 embedding_model = EmbedText(50257, 256)
 
-print(f"Embedding model size: {embedding_model.convert_tokens_to_embeddings(input_text=inputs).shape}")
+# print(f"Embedding model size: {embedding_model.convert_tokens_to_embeddings(input_text=inputs)}")
+embedded_text = embedding_model.convert_tokens_to_embeddings(input_text=inputs)
+
+attn = Attention()
+print(embedded_text)

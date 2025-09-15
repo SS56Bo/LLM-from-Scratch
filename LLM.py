@@ -58,3 +58,11 @@ class EmbedText(nn.Module):
         # broadcast + add
         embeddings = token_embeddings + position_embeddings
         return embeddings
+
+class Attention:
+    '''<--- Attention is all you need --->'''
+    def __init__(self):
+        pass
+
+    def calcAttentionScore(self, input_text:torch.Tensor):
+        
